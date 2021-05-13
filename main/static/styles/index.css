@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    margin: 0;     /* Обнуляем дефолтные значения элементов, гоыорим браузеру будет так как мы задаем 
+    отступы элементам */
+    padding: 0;
+    color: #263238;
+} 
+
+section{
+    width: 100%; /* Ширина всего контента */
+    padding:20px; /*Отсупы всем элементам чтобы к краям не липли */
+    display: flex; /* Отображение гипкое */
+    flex-direction: column; /* Направление элементов колонки одна на другой */
+    align-items: center; /* Центрирование элементов по центру */
+
+    
+}
+
+.create_container{
+    width: 80%;
+    /* Для того чтобы элемент поле ввода получил больше ширины своего содержимого текста  */
+
+}
+.create_input{
+    /* Отступы сверху+снизу  с права+слева  */
+    padding:12px 5px;
+    font-size: 18px;
+    width: 80%; /*Ширина контейнера инпут  */
+}
+
+.create_button{
+    padding:12px 5px;
+    background-color: #CE93D8;
+    border: 1px solid #CE93D8 ;
+    color:white;
+    font-size: 18px;
+    text-transform: uppercase; /*Трансформация текста в верхний регистр */
+    font-weight: bold;
+    border-radius: 3px;
+    cursor:pointer;
+
+    
+}
+
+.create_button:active{
+    /* Псевод класс для добавления эфекта при нажатии и удерживании кнопки */
+    border:1x solid #CE93D8;
+    box-shadow: 2px 2px 5px 3px #FCE4EC;
+    
+}
+
+.todo_container{
+    /* Сверху + снизу, справа+слева */
+    padding:30px  20px ;
+    display: flex;
+    justify-content: space-around;/* оцентрировали элементы по середине , одинаковые границы для элементов */
+    flex-wrap: wrap;
+    width: 100%;
+    
+}
+
+.todo_item{
+    border:1px solid gray;
+    border-radius: 5px;
+    width:24%;
+    padding:10px 15px;
+    background-color:#C8E6C9;
+    margin-bottom: 20px;
+
+}
+ 
+.todo_item.done{
+    background-color: #e0e0e0;
+    text-decoration:line-through;
+    color: #757575;
+
+}
+
+
+.todo_item.done h4, .todo_item.done p, .todo_item.done span{
+    color: #757575;
+
+}
+
+.todo_item.done img{
+    opacity: 0.5; /* Прозрачность картины */
+}
+
+.todo.marked{
+    background-color: aliceblue;
+    border:2px solid #fad66a;   
+
+}
+
+
+.todo_item_header{
+    display: flex;
+    align-items: center;
+    min-height: 35px;
+}
+
+.todo_item_header h4{
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.todo_item_footer{
+    display: flex;
+    justify-content: space-between;/* Равномерно распределяет все элементы по ширине flex-блока.
+    Первый элемент вначале, последний в конце */
+    align-items: center;
+}
+
+.todo_item_footer p{
+    font-size:15px;
+    font-family: sans-serif;
+}
+  
+
+
+.todo_item_footer .action_buttons{
+    display: flex; /* Чтобы расположить иконки рядом */
+}
+.todo_item_footer img{
+    width:25px;
+    height: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ToDo</title>
+    <link rel="stylesheet" href="./styles/index.css"/>
+    <link rel="stylesheet" href="./styles/checkbox.css"/>
+  
+</head>
+<body>
+    <section><!--"Этот тег нужен для группировки взаимосвязанного содержимого"
+    Мы логически делим страницу на 2 части 
+    1-ая часть это создание нового задания. А 2-я для отображения созданного -->
+
+        <div class="create_container">
+            <input class="create_input" type="text" placeholder="Нажмите сюда чтобы создать задачу"/>
+            <button class="create_button">Добавить</button>
+        </div>
+
+        <div class="todo_container">
+
+            <div class="todo_item">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox" id="checkbox" onchange="change_text()">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>Закончить задание 28</h4>
+                </div>
+
+                <div class="todo_item_footer">
+                   <p>5.12.2021 <span>10:59</span> </p> <!-- Для обработки с backend -->
+                   <div class="action_buttons">
+                        <img src="./icons/inactive_star.png" />
+                        <img src="./icons/delete.png" />
+                   </div> <!-- Иконки в 1 строчку -->
+                </div>
+            </div>
+
+            <div class="todo_item marked">
+
+            </div>
+
+            <div class="todo_item done">
+
+            </div>
+            
+            <div class="todo_item marked">
+
+            </div>
+
+            <div class="todo_item">
+
+            </div>
+
+            <div class="todo_item done">
+
+            </div>
+
+
+
+        </div>
+
+        
+
+    </section>
+
+ <script src="./Scripts/script.js"></script>  
+</body>
+</html>
