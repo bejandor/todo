@@ -3,14 +3,11 @@ from django.shortcuts import render
 # Create your views here.
 
 def homepage(request):
-    return HttpResponse("Hello world")
+    return render(request, "index.html") #Метод который отображает наш index файл
 
 
-def test(request):
-    return render(request,"test.html")
+# def second(request):
+#     return HttpResponse("Test2 page")
 
-def second(request):
-    return HttpResponse("Test2 page")
-
-def third(request):
-    return HttpResponse("This is page test3")
+# def third(request):
+#     return HttpResponse("This is page test3")
