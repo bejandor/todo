@@ -92,7 +92,6 @@ section{
 
 }
 
-
 .todo_item_header{
     display: flex;
     align-items: center;
@@ -128,7 +127,11 @@ section{
     cursor: pointer;
 }
 
+.p{
+    background-color:rgb(238, 238, 142);
+    border:2px solid #fad66a;   
 
+}
 
 
 
