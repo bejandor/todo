@@ -6,8 +6,5 @@ def homepage(request):
     return render(request, "index.html") #Метод который отображает наш index файл
 
 
-# def second(request):
-#     return HttpResponse("Test2 page")
-
-# def third(request):
-#     return HttpResponse("This is page test3")
+def test(request):
+    return render(request, "test.html") #Метод который отображает наш test файл
