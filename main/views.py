@@ -1,5 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
+from .models import ToDo #Импортируем наш класс ToDo
 # Create your views here.
 
 def homepage(request):
@@ -7,4 +8,5 @@ def homepage(request):
 
 
 def test(request):
-    return render(request, "test.html") #Метод который отображает наш test файл
+    todo_list = ToDo.objects.all()
+    return render(request, "test.html",{"todo_list":todo_list}) #Метод который отображает наш test файл
