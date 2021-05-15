@@ -1,0 +1,20 @@
+<!-- Это наш основной шаблон с базовой структурой html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock %} </title>
+</head>
+<body>
+
+    <!-- Внутрь базового шаблона можно встроить html блоки и заменить содержимое
+    block content -->
+    {% block content %}
+
+    <!-- Это на подобии контейнера куда можно подставлять html теги -->
+
+    {% endblock %}
+    
+</body>
+</html>

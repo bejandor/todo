@@ -5,7 +5,7 @@ from django.db import models
 
 class ToDo(models.Model):
     text = models.CharField(max_length=100) # Поле для хранения текста
-    created_at  = models.DateField(auto_now_add = True) # Для хранения даты 
+    created_at  = models.DateField(auto_now_add = True) # Для хранения даты будет добавлятся автоматически
     is_done_task = models.BooleanField(default = False)
     is_favorite = models.BooleanField(default = False)
 
