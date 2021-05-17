@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main.views import homepage,test,test2_index,test2_about
+from main.views import test_task31
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,7 +25,8 @@ urlpatterns = [
     path("", homepage, name="home"),
     path("test/", test, name="test"),
     path('test2_index/',test2_index,name="test2_index"),
-    path("test2_about/",test2_about, name="test2_about")
+    path("test2_about/",test2_about, name="test2_about"),
+    path("test_task31/",test_task31, name="test_task31")
 
     ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

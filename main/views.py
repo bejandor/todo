@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
-from .models import ToDo,Task31 #Импортируем наш класс ToDo
+from .models import ToDo,Task31
+
 # Create your views here.
 
 def homepage(request):
@@ -22,5 +23,8 @@ def test2_about(request):
     return render(request, "main/about.html")
 
 
-def task31(request):
-    return render(request, "task31.html")    
+def test_task31(request):
+    #Получаем обьект из созданных моделей
+    task31_list = Task31.objects.all()
+    return render(request, "test_task31.html",{"task31_list":task31_list})
+        

@@ -10,5 +10,5 @@ class ToDo(models.Model):
     is_favorite = models.BooleanField(default = False)
 
 class Task31(models.Model):
-    text1 = models.CharField(max_length=100)
+    text1 = models.CharField(max_length = 100)
 
