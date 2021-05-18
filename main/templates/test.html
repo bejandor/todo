@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ToDo</title>
+    <title>test</title>
 
     <!-- <link rel="stylesheet" href="./styles/index.css"/> -->
     <link href="{% static 'styles/index.css' %}" rel="stylesheet">
@@ -19,8 +19,16 @@
 <body>
      <section>
             <div class="create_container">
-                <input class="create_input" type="text" placeholder="Нажмите сюда чтобы создать задачу"/>
-                <button class="create_button">Добавить</button>
+                <form action="{% url 'add-todo' %}" method="POST">
+                    {% csrf_token %}
+                    <input 
+                    class="create_input" 
+                    type="text" 
+                    placeholder="Нажмите сюда чтобы создать задачу"
+                    name="todo_text"
+                    />
+                    <button class="create_button">Добавить</button>
+                </form>
             </div>
     
             <div class="todo_container">
@@ -43,10 +51,10 @@
     
                     <div class="todo_item_footer">
                         <!-- Подставляем значение(дата) полученный из todo_list в тег p  -->
-                       <p>{{ i.created_at }} </p> 
+                       <p>{{ i.created_at }} </p>   
                        <div class="action_buttons">
-                            <img src="./icons/inactive_star.png" />
-                            <img src="./icons/delete.png" />
+                            <img src="{% static './icons/inactive_star.png' %}" />
+                            <img src="{% static './icons/delete.png'  %}" />
                        </div> <!-- Иконки в 1 строчку -->
                     </div>
                 </div>

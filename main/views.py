@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import ToDo,Task31,Books_data
+
 
 # Create your views here.
 
@@ -30,5 +31,13 @@ def test_task31(request):
 
 def books(request):
     books_data_list = Books_data.objects.all()
-    return render(request, "books.html",{"books_data_list":books_data_list})    
+    return render(request, "books.html",{"books_data_list":books_data_list})   
+
+def add_todo(request):
+    form = request.POST
+    text1 = form["todo_text"] # Получаем переменную из формы
+    todo = ToDo(text = text1)# Создаем объект ToDo у него есть атрибут(поле) text записываем text1
+    todo.save() #Отправить запрос в базу для сохранения 
+    return redirect(test)# После добавления перенаправление на страницу test
+
         
