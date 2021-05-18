@@ -124,5 +124,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') #Путь к статичным �
 MEDIA_URL = '/media/' # Для медия файлов
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') # Путь к медия файлам
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

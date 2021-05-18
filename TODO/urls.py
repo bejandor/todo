@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main.views import homepage,test,test2_index,test2_about
-from main.views import test_task31
+from main.views import test_task31,books
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,7 +26,9 @@ urlpatterns = [
     path("test/", test, name="test"),
     path('test2_index/',test2_index,name="test2_index"),
     path("test2_about/",test2_about, name="test2_about"),
-    path("test_task31/",test_task31, name="test_task31")
+    path("test_task31/",test_task31, name="test_task31"),
+    path("books", books, name="books")#2 объязательных праметра  ("Запрошенный адрес URL/", и функция которая )
+    # ее обрабатывает запрос по этому адресу, можно указать имя = "маршрута")
 
     ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

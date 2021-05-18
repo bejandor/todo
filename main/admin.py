@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ToDo,Task31
+from .models import ToDo,Task31,Books_data
 
 # Register your models here.
 
@@ -8,3 +8,4 @@ from .models import ToDo,Task31
 # со своими методами
 admin.site.register(ToDo) 
 admin.site.register(Task31)
+admin.site.register(Books_data)
