@@ -35,7 +35,7 @@
                <!-- Для того чтобы отобразить наши записи todo_list которые мы получили из базы
                    нужно использовать цикл шаблонизатора 
                 Так же цикл сработает столько раз сколько у нас обьектов в todo_list-->
-                {% for i in todo_list  %}
+                {% for todo_object in todo_list  %}
 
                 <div class="todo_item">
                     <div class="todo_item_header">
@@ -45,16 +45,16 @@
                         </label>
 
                         <!-- Подставляем значение(текст) полученный из todo_list в тег h4 -->
-                        <h4>{{ i.text }}</h4>
+                        <h4>{{ todo_object.text }}</h4>
                         
                     </div>
     
                     <div class="todo_item_footer">
                         <!-- Подставляем значение(дата) полученный из todo_list в тег p  -->
-                       <p>{{ i.created_at }} </p>   
+                       <p>{{ todo_object.created_at }} </p>   
                        <div class="action_buttons">
                             <img src="{% static './icons/inactive_star.png' %}" />
-                            <img src="{% static './icons/delete.png'  %}" />
+                            <a href="{% url 'delete-todo' todo_object.id %}"><img src="{% static './icons/delete.png' %}" /></a>
                        </div> <!-- Иконки в 1 строчку -->
                     </div>
                 </div>
