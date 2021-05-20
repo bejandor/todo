@@ -16,8 +16,8 @@ class Task31(models.Model):
 
 
 class Books_data(models.Model):
-    tittle = models.CharField(max_length =  40)
-    subtitle = models.CharField(max_length =  25)
+    title = models.CharField(max_length =  100)
+    subtitle = models.CharField(max_length =  100)
     describtion = models.CharField(max_length = 200)
     price = models.DecimalField(max_digits= 7 ,decimal_places = 2)
     genre = models.CharField(max_length = 40)

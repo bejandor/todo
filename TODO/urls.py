@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import homepage,test,test2_index,test2_about
 from main.views import *
 from django.conf import settings
 from django.conf.urls.static import static
@@ -30,6 +29,7 @@ urlpatterns = [
     path("books", books, name="books"),#2 объязательных праметра  ("Запрошенный адрес URL/", и функция которая )
     # ее обрабатывает запрос по этому адресу, можно указать имя = "маршрута")
     path("add-todo/", add_todo, name="add-todo"),
+    path("add-book/", add_book, name="add-book"),
 
 
     ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \
