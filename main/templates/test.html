@@ -37,10 +37,16 @@
                 Так же цикл сработает столько раз сколько у нас обьектов в todo_list-->
                 {% for todo_object in todo_list  %}
 
-                <div class="todo_item">
+                <div class="todo_item
+                {% if todo_object.is_favorite %}
+                   marked
+                {% else %}
+                    todo_item
+                {% endif %}
+                ">
                     <div class="todo_item_header">
                         <label class="checkbox_container">
-                            <input type="checkbox" id="checkbox" onchange="change_text()">
+                            <input type="checkbox" id="checkbox">
                             <span class="checkmark"></span>
                         </label>
 
@@ -50,10 +56,20 @@
                     </div>
     
                     <div class="todo_item_footer">
+
                         <!-- Подставляем значение(дата) полученный из todo_list в тег p  -->
-                       <p>{{ todo_object.created_at }} </p>   
+                       <p>{{ todo_object.created_at }} </p>  
+
                        <div class="action_buttons">
-                            <img src="{% static './icons/inactive_star.png' %}" />
+                           {% if todo_object.is_favorite %}
+                           <a href="{% url 'mark-todo' todo_object.id %}"><img src="{% static './icons/active_star.png' %}" /></a>
+
+                           {% else %}
+                           <a href="{% url 'unmark-todo' todo_object.id %}"><img src="{% static './icons/inactive_star.png' %}" /></a>
+                            
+                           {% endif %}
+
+                           
                             <a href="{% url 'delete-todo' todo_object.id %}"><img src="{% static './icons/delete.png' %}" /></a>
                        </div> <!-- Иконки в 1 строчку -->
                     </div>

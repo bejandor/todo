@@ -68,6 +68,11 @@ section{
     margin-bottom: 20px;
 
 }
+
+.todo_item.marked{
+    background-color:#fad66a;
+    border:2px solid #eedeae;   
+}
  
 .todo_item.done{
     background-color: #e0e0e0;
@@ -77,6 +82,7 @@ section{
 }
 
 
+
 .todo_item.done h4, .todo_item.done p, .todo_item.done span{
     color: #757575;
 
@@ -84,12 +90,6 @@ section{
 
 .todo_item.done img{
     opacity: 0.5; /* Прозрачность картины */
-}
-
-.todo.marked{
-    background-color: aliceblue;
-    border:2px solid #fad66a;   
-
 }
 
 .todo_item_header{
@@ -127,11 +127,6 @@ section{
     cursor: pointer;
 }
 
-.p{
-    background-color:rgb(238, 238, 142);
-    border:2px solid #fad66a;   
-
-}
 
 
 

@@ -1,70 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'styles/books.css' %}" rel="stylesheet">
+
     <title>Книжный магазин</title>
 </head>
 <body>
-    <header style = "background-color:khaki; height:45px">
-        <h1 style=" text-align: center;font-size: 45px;letter-spacing: 5px;">Книжный магазин </h1>
+    <header >
+        <h1 >Книжный магазин </h1>
     </header>
 
-    <nav style = "background-color:coral; height:45px;">
+    <nav>
         <a href = "#">Главная</a> 
         <a href = "#">Каталог</a> 
         <a href = "#">О нас</a> 
     </nav>
 
-    <aside style  = "float:right; width:40%; height:100%; background-color:tan; padding: 20px;">
-        <p>Добавить книгу</p>
-        <form action="{% url 'add-book' %}" method="POST">
-           {% csrf_token %}
-           Заголовок :   <input type="text" size="40" name="title"><br><br>
-           Подзагловок : <input type="text"size="40" name="subtitle"><br><br>
-           Жанр : <input type="text" size="40" name="genre"><br><br>
-           Автор : <input type="text" size="40" name="author"><br><br>
-           Год публикации : <input type="number"size="4" name="year"><br><br>
-           Описание:<div> <textarea name="description"name="describtion"></textarea><div><br>
-           Цена : <input type="number" size="40" name="price" ><br><br>
+    <section class="container">
 
-           <button type="submit">Добавить</button> 
-           <button type="reset">Очистить</button>
+        <div class="add_book_form">
+            <h2 class="form_text">Добавить книгу</h2>
+                <form action="{% url 'add-book' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form_text">Заголовок  </div>  
+                        <input type="text" size="40" name="title"/>
 
-        </form>
+                    <div class="form_text"> Подзагловок </div> 
+                        <input type="text"size="40" name="subtitle"/>
 
-    </aside>
-    
-    <section>
-       
-    {% for i in  books_data_list %}
-        <h3>Название книги: {{i.tittle }}</h3>
-        <h3>Подзагловок: {{ i.subtitle }}</h3>
-        <h4>Описание: {{ i.describtion }}</h4>
-        <p>Цена: {{ i.price }} - Руб</p>
-        <p>Жанр: {{ i.genre }}</p>
-        <h3>Автор: {{ i.author }}</h3>
-        <span> Год релиза: {{ i.year_of_issue }}   Загружен на сайт: {{ i.uploaded_at }}</span> 
-        <hr>
-    {% endfor %}
-      
-    </section>    
+                    <div class="form_text">Жанр  </div>  
+                        <input type="text" size="40" name="genre"/>
 
+                    <div class="form_text"> Автор  </div> 
+                        <input type="text" size="40" name="author"/>
 
+                    <div class="form_text"> Год публикации </div> 
+                        <input type="number"size="4" name="year"/>
+
+                    <div class="form_text"> Описание </div>
+                        <textarea name="description"name="describtion"></textarea>
+
+                    <div class="form_text"> Цена   </div>  
+                        <input type="number" size="40" name="price"/><br><br>
+
+                    <button type="submit" >Добавить</button> 
+                    <button type="reset">Очистить</button>
+                </form>
+        </div>
+
+        {% for i in  books_data_list %}
+        <div class="books_text">
+            <h3>Название книги: {{i.title }}</h3>
+            <h3>Подзагловок: {{ i.subtitle }}</h3>
+            <h4>Описание: {{ i.describtion }}</h4>
+            <p>Цена: {{ i.price }}  Руб</p> 
+            <p>Жанр: {{ i.genre }}</p>
+            <h3>Автор: {{ i.author }}</h3>
+            <span> Год релиза: {{ i.year_of_issue }}   Загружен на сайт: {{ i.uploaded_at }}</span> 
+        </div>
+        {% endfor %}    
+
+    </section>
     
 </body>
 </html>
 
 
-{% block content %}
-
-
-<div class="add_books_container">
-</div>
-
-
-
-
-
-{% endblock %}
