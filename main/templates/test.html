@@ -35,23 +35,32 @@
                <!-- Для того чтобы отобразить наши записи todo_list которые мы получили из базы
                    нужно использовать цикл шаблонизатора 
                 Так же цикл сработает столько раз сколько у нас обьектов в todo_list-->
-                {% for todo_object in todo_list  %}
+                {% for todo_object in todo_list %}
 
                 <div class="todo_item
                 {% if todo_object.is_favorite %}
                    marked
+                {% elif todo_object.is_done_task %}
+                    done
+
                 {% else %}
-                    todo_item
+                  todo_item
                 {% endif %}
                 ">
                     <div class="todo_item_header">
+                           
                         <label class="checkbox_container">
-                            <input type="checkbox" id="checkbox">
+                            <input type="checkbox"
+                            {% if todo_object.is_done_task %}
+                                checked
+
+                            {% endif %}
+                            >
                             <span class="checkmark"></span>
                         </label>
 
                         <!-- Подставляем значение(текст) полученный из todo_list в тег h4 -->
-                        <h4>{{ todo_object.text }}</h4>
+                        <h4><a href="{% url 'done-todo' todo_object.id %}">{{ todo_object.text }}</a></h4>
                         
                     </div>
     
@@ -61,17 +70,22 @@
                        <p>{{ todo_object.created_at }} </p>  
 
                        <div class="action_buttons">
-                           {% if todo_object.is_favorite %}
-                           <a href="{% url 'mark-todo' todo_object.id %}"><img src="{% static './icons/active_star.png' %}" /></a>
+                           {% if todo_object.is_favorite %} 
+                               <a href="{% url 'unmark-todo'  todo_object.id  %}">
+                                   <img src="{% static './icons/active_star.png' %}" />
+                                </a>
+                            {% else %}
+                                <a href="{% url 'mark-todo'  todo_object.id  %}">
+                                    <img src="{% static './icons/inactive_star.png' %}" /> 
+                                </a>   
+                               
+                            {% endif %}
 
-                           {% else %}
-                           <a href="{% url 'unmark-todo' todo_object.id %}"><img src="{% static './icons/inactive_star.png' %}" /></a>
-                            
-                           {% endif %}
-
-                           
-                            <a href="{% url 'delete-todo' todo_object.id %}"><img src="{% static './icons/delete.png' %}" /></a>
+                            <a href="{% url 'delete-todo' todo_object.id %}">
+                                <img src="{% static './icons/delete.png' %}" />
+                            </a>
                        </div> <!-- Иконки в 1 строчку -->
+                                
                     </div>
                 </div>
                    

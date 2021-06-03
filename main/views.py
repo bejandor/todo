@@ -67,23 +67,33 @@ def add_book(request):
     return redirect(books) # Перенаправляем на страницу books
 
 def delete_todo(request, id):
-    todo = ToDo.objects.get(id = id)
-    todo.delete()
+    todo_object = ToDo.objects.get(id = id)
+    todo_object.delete()
     return redirect(test)
 
-def mark_todo(request, id):
-    todo = ToDo.objects.get(id = id)
-    todo.is_favorite = True
-    todo.save()
-    return redirect(test)
+
+
 
 def unmark_todo(request, id):
-    todo = ToDo.objects.get(id = id)
-    todo.is_favorite = False
-    todo.save() 
-    return redirect(test)  
+    todo_object = ToDo.objects.get(id = id)
+    todo_object.is_favorite = False
+    todo_object.save() 
+    return redirect(test) 
 
 
+def mark_todo(request, id):
+    todo_object = ToDo.objects.get(id = id)
+    todo_object.is_favorite = True
+    todo_object.save()
+    return redirect(test)
+   
+
+
+def done_todo(reques, id):
+    todo_object = ToDo.objects.get(id = id)
+    todo_object.is_done_task = not todo_object.is_done_task
+    todo_object.save()
+    return redirect(test)
 
 
 

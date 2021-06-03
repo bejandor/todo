@@ -23,16 +23,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homepage, name="home"),
     path("test/", test, name="test"),
-    path('test2_index/',test2_index,name="test2_index"),
-    path("test2_about/",test2_about, name="test2_about"),
+    # path('test2_index/',test2_index,name="test2_index"),
+    # path("test2_about/",test2_about, name="test2_about"),
     path("test_task31/",test_task31, name="test_task31"),
     path("books", books, name="books"),#2 объязательных праметра  ("Запрошенный адрес URL/", и функция которая )
     # ее обрабатывает запрос по этому адресу, можно указать имя = "маршрута")
-    path("add-todo/", add_todo, name="add-todo"),
     path("add-book/", add_book, name="add-book"),
+     path("add-todo/", add_todo, name="add-todo"),
     path("delete-todo/<id>/", delete_todo, name="delete-todo"),
-    path("mark-todo/<id>/",mark_todo,name="mark-todo"),
-    path("unmark-todo/<id>/",unmark_todo,name="unmark-todo"),
+    path("mark-todo/<id>/", mark_todo, name="mark-todo"),
+    path("unmark-todo/<id>/", unmark_todo, name="unmark-todo"),
+    path("done-todo/<id>/", done_todo, name="done-todo"),
     
 
     ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \

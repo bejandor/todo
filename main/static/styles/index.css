@@ -6,6 +6,10 @@
     color: #263238;
 } 
 
+.todo_item_header h4 a{
+    text-decoration: none;
+}
+
 section{
     width: 100%; /* Ширина всего контента */
     padding:20px; /*Отсупы всем элементам чтобы к краям не липли */
@@ -66,6 +70,7 @@ section{
     padding:10px 15px;
     background-color:#C8E6C9;
     margin-bottom: 20px;
+    
 
 }
 
@@ -78,9 +83,9 @@ section{
     background-color: #e0e0e0;
     text-decoration:line-through;
     color: #757575;
+    
 
 }
-
 
 
 .todo_item.done h4, .todo_item.done p, .todo_item.done span{
